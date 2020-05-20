@@ -4,7 +4,7 @@ $db = mysqli_connect("sql9.freemysqlhosting.net", "sql9341133", "r3xXEQjzaB", "s
 $username = $_POST['username'];
 $pw = $_POST['password'];
 $getuser = $db->query("SELECT *from customer WHERE username='$username'");
-if($getuser->num_rows == 1)
+if($getuser->num_rows > 0)
 {
     $row=$getuser->fetch_array(MYSQLI_ASSOC);
     if($row['password']==$pw)
