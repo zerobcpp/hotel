@@ -2,8 +2,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Main page</title>
-    <script type="text/javascript" src="../../../OneDrive/CS370/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="../../../OneDrive/CS370/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
 </head>
 <body>
 <div class="container p-3">
@@ -65,12 +66,12 @@
                 while($row = mysqli_fetch_array($gethotel))
                 {
                     $currHotelcode = $row['hotelcode'];
-                    $regReserved = mysqli_query($db,"SELECT *FROM reservation
+                    $regReserved = mysqli_query($db,"SELECT *FROM reservations
  WHERE ((hotelcode = '$currHotelcode' AND roomtype = 'regular') 
  AND ((checkin <= '$checkin' AND checkout >= '$checkin')
  OR (checkin <= '$checkout' AND checkout >= '$checkout')
  OR (checkin >= '$checkin' AND checkout <= '$checkout')))");
-                    $delReserved = mysqli_query($db,"SELECT * FROM reservation
+                    $delReserved = mysqli_query($db,"SELECT * FROM reservations
  WHERE ((hotelcode = '$currHotelcode' AND roomtype = 'deluxe') 
  AND ((checkin <= '$checkin' AND checkout >= '$checkin')
  OR (checkin <= '$checkout' AND checkout >= '$checkout')
@@ -83,9 +84,9 @@
 <td>"."(".$row['addressi'].", ".$row['addressj'].")</td>
 <td>Regular: ".$regAvail."<br>Deluxe:".$delAvail."</td>
 <td>Regular: $".$row['pricenormal']."<br>Deluxe: $".$row['pricedeluxe']."</td>
-<td><a class=\"btn btn-primary\" href=\"reserveregular.php?hotelid=$row[hotelcode] \" role=\"button\">Reserve Regular</a>
+<td><a href=\"reserveregular.php?hotelid=$row[hotelcode]\"class=\"btn btn-primary\" >Reserve Regular</a>
 </td>
-<td><a class=\"btn btn-primary\" href=\"reservedeluxe.php?hotelid=$row[hotelcode] \" role=\"button\">Reserve Deluxe</a>
+<td><a class=\"btn btn-primary\" href=\"reservedeluxe.php?hotelid=$row[hotelcode] \"role=\"button\">Reserve Deluxe</a>
 </td>
 </tr></form>";
                 }

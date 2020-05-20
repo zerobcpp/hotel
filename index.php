@@ -53,6 +53,15 @@
                 </td>
             </tr>
         </table>
+        <h4 class="text-center">Hotel Locations</h3>
+        <p class="text-center p-4">
+        <table style="margin-left: auto; margin-right: auto;">
+            <tr>
+                <td>
+                    <a class="btn btn-primary btn-lg btn-block" href="map.php" role="button">Map</a>
+                </td>
+            </tr>
+        </table>
         </p>
     </div>
 </div>
