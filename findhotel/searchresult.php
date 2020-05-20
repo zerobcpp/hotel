@@ -13,6 +13,7 @@
     <div class="d-inline-block float-lg-right">
         <?php
         session_start();
+        print_r($_POST);
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
         $sort = $_POST['sort'];
